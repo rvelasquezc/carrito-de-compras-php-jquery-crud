@@ -29,22 +29,4 @@ if ($numeroventa == 0) {
 
 }
 
-// inserto todos los datos de los productos de la sesión/carrito a la base de datos
-// todos tendrán el mismo número de venta
-for ($i=0; $i <count($arreglo) ; $i++) { 
-	mysqli_query($con,"insert into compras (numeroventa,imagen,nombre,precio,cantidad,subtotal) values (
-          ".$numeroventa.",
-          '".$arreglo[$i]['imagen']."',
-          '".$arreglo[$i]['nombre']."',
-          '".$arreglo[$i]['precio']."',
-          '".$arreglo[$i]['cantidad']."',
-          '".$arreglo[$i]['precio']*$arreglo[$i]['cantidad']."')") or die(mysqli_error());
-		
-}
-
-// destruimos la variable de sesión/vaciamos el carrito
-unset($_SESSION['carrito']);
-
-
-// lo redireccionamos a la página de administración
-header("location:../admin.php");
+//Insertar productos
